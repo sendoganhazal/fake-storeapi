@@ -1,4 +1,3 @@
-// lib/api/products.ts
 import { Product, ProductFilterParams } from '@/types';
 
 const BASE_URL = 'https://fakestoreapi.com/products';
