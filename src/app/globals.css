@@ -3,16 +3,17 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --header-main: #303951;
-  --primary-color: #3064e8;
+  --cyan: #00b5d8;
+  --primary-color: #38b2ac;
   --success: #27ae60;
   --error: #eb5757;
   --warning: #e2b93b;
   --gray-1: #f5f7fe;
   --gray-2: #e6ecfc;
   --gray-3: #828282;
-  --text-primary: #001655;
+  --text-primary: #553c9a;
   --text-default: #282828;
+  --blue: #2b6cb0;
 }
 
 body {
@@ -31,7 +32,7 @@ main {
 
 /* Header */
 .header {
-  background-color: var(--header-main);
+  background-color: var(--cyan);
   color: #ffffff;
   padding: 1rem 2rem;
   display: flex;
@@ -125,7 +126,9 @@ main {
   font-weight: 600;
   margin-top: 0.75rem;
   margin-bottom: 0.5rem;
-  height: 3em;
+  height: 1em;
+  color: var(--blue);
+  text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -136,7 +139,7 @@ main {
 .product-card .product-price {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--text-primary);
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -167,7 +170,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 .product-image-wrapper img {
@@ -186,9 +189,16 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+
+  color: var(--primary-color-text);
+}
+.p-button-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-  color: var(--primary-color-text);
+}
+.p-button-secondary {
+  background-color: var(--blue);
+  border-color: var(--blue);
 }
 
 .p-button:hover {
@@ -258,7 +268,17 @@ main {
   align-items: center;
   min-height: 200px;
 }
+.p-slider .p-slider-range {
+  background: var(--primary-color);
+}
+.p-slider .p-slider-handle {
+  border-color: var(--primary-color);
+}
 
+.p-slider:not(.p-disabled) .p-slider-handle:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
 /* Product Detail stilleri */
 .product-detail-container {
   display: flex;
@@ -389,9 +409,10 @@ main {
 .cart-overlay-empty-message {
   text-align: center;
   padding: 2rem;
-  color: #6c757d;
+  color: var(--text-default);
   font-size: 1.1rem;
   margin-top: 2rem;
+  align-self: center;
 }
 
 .cart-overlay-empty-message .p-button {
@@ -466,6 +487,7 @@ main {
   font-size: 1rem;
   min-width: 1.5rem;
   text-align: center;
+  color: var(--text-default);
 }
 
 .cart-overlay-item .remove-button {
