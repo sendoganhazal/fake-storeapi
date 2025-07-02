@@ -8,6 +8,8 @@ interface CartContextType {
   cartItemCount: number;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
+  increaseQuantity: (productId: number) => void; // Yeni eklendi
+  decreaseQuantity: (productId: number) => void; // Yeni eklendi
   clearCart: () => void;
 }
 
@@ -52,6 +54,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   }, []);
 
+  const increaseQuantity = useCallback((productId: number) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  }, []);
+
+  const decreaseQuantity = useCallback((productId: number) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === productId
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+          : item
+      ).filter(item => item.quantity > 0)
+    );
+  }, []);
+
   const clearCart = useCallback(() => {
     setCartItems([]);
   }, []);
@@ -59,7 +79,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, cartItemCount, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cartItems, cartItemCount, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );
