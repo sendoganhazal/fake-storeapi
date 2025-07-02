@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "loadsh": "^0.0.4",
     "next": "15.3.4",
+    "primeicons": "^7.0.0",
     "primereact": "^10.9.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
