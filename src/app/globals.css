@@ -24,12 +24,6 @@ body {
   box-sizing: border-box;
 }
 
-main {
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 /* Header */
 .header {
   background-color: var(--cyan);
@@ -238,18 +232,19 @@ main {
   margin-top: 0.5rem;
 }
 
-/* Product List stilleri */
-.product-list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.p-slider .p-slider-range {
+  background: var(--primary-color);
+}
+.p-slider .p-slider-handle {
+  border-color: var(--primary-color);
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+.p-slider:not(.p-disabled) .p-slider-handle:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
+
+/* Product List stilleri */
 
 .no-products-message {
   text-align: center;
@@ -268,18 +263,7 @@ main {
   align-items: center;
   min-height: 200px;
 }
-.p-slider .p-slider-range {
-  background: var(--primary-color);
-}
-.p-slider .p-slider-handle {
-  border-color: var(--primary-color);
-}
-
-.p-slider:not(.p-disabled) .p-slider-handle:hover {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-}
-/* Product Detail stilleri */
+/* Product Detail */
 .product-detail-container {
   display: flex;
   flex-direction: column;

@@ -12,13 +12,17 @@ interface PaginationProps {
 
 
 const Pagination: React.FC<PaginationProps> = ({ first, rows, totalRecords, onPageChange }) => {
+    const handlePageChange = (event: { first: number; rows: number; page: number; pageCount: number }) => {
+    
+    onPageChange(event);
+  };
   return (
     <div className="paginator-wrapper">
       <Paginator
         first={first}
         rows={rows}
         totalRecords={totalRecords}
-        onPageChange={onPageChange}
+        onPageChange={handlePageChange}
         template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
       />
     </div>

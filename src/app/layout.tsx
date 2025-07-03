@@ -1,12 +1,12 @@
-// app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css'; // Global CSS dosyamız
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; // PrimeReact teması
-import 'primereact/resources/primereact.min.css'; // PrimeReact core CSS
-import 'primeicons/primeicons.css'; // PrimeIcons
+import './globals.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import { CartProvider } from '../context/CardContext';
-import Header from '@/components/molecules/Header'; // Header bileşenini import et
+import Header from '@/components/molecules/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,8 +25,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <CartProvider>
           <Header />
-          <main className="main-content">
-            {children}
+          <main className="grid grid-nogutter justify-content-center">
+            <div className='col-12 md:col-10'>
+              {children}
+            </div>
+            
           </main>
         </CartProvider>
       </body>
