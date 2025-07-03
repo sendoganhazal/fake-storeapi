@@ -1,12 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
-import { CartProvider } from '../context/CardContext';
-import Header from '@/components/molecules/Header';
+import './globals.css'; // Genel CSS dosyamız
+import { CartProvider } from '@/context/CardContext';
+import Header from '@/components/molecules/Header'; // Header bileşenini import et
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,13 +20,11 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={inter.className}>
+        {/* StyledComponentsRegistry kaldırıldı */}
         <CartProvider>
-          <Header />
-          <main className="grid grid-nogutter justify-content-center">
-            <div className='col-12 md:col-10'>
-              {children}
-            </div>
-            
+          <Header /> {/* Header'ı buraya ekle */}
+          <main className="main-content"> {/* Tailwind sınıfları yerine düz CSS sınıfı */}
+            {children}
           </main>
         </CartProvider>
       </body>
