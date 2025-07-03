@@ -6,6 +6,7 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import ProductCard from "@/components/molecules/ProductCard";
 import FilterControls from "@/components/molecules/FilterControls";
 import { Product } from "@/types";
+
 import { useSearchParams } from "next/navigation";
 import { getProducts } from "@/lib/api/product";
 
@@ -15,7 +16,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ initialCategories }) => {
   const searchParams = useSearchParams();
-
+  //  const pathname = usePathname();
   const [products, setProducts] = useState<Product[]>([]);
   const [totalProducts, setTotalProducts] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -103,14 +104,17 @@ const ProductList: React.FC<ProductListProps> = ({ initialCategories }) => {
     page: number;
     pageCount: number;
   }) => {
+   
     const newOffset = event.first;
     const currentParams = new URLSearchParams(searchParams.toString());
     currentParams.set("offset", newOffset.toString());
+    
     // const newUrl = `${pathname}?${currentParams.toString()}`;
-
-    // router.push(newUrl);
+  
+ 
     fetchProducts(newOffset);
   };
+
 
   return (
     <div className="product-list-container">
