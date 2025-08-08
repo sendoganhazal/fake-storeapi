@@ -1,16 +1,9 @@
-import { getCategories } from '@/lib/api/product';
-import ProductList from '@/components/organisms/ProductList';
-import { Suspense } from 'react';
+import Image from "next/image";
 
-export const dynamic = 'force-dynamic';
-
-export default async function HomePage() {
-  const categoriesPromise = getCategories();
-  const categories = await categoriesPromise;
-
+export default function Home() {
   return (
-    <Suspense fallback={<div>Ürünler yükleniyor...</div>}>
-      <ProductList initialCategories={categories} />
-    </Suspense>
+    <div>
+      Hi everyone!!
+    </div>
   );
 }

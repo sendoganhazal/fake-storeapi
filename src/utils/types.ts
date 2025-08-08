@@ -1,0 +1,5 @@
+export interface Category{
+    slug: "beauty",
+    name: "Beauty",
+    url: "https://dummyjson.com/products/category/beauty"
+}
