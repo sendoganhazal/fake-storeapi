@@ -3,7 +3,7 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Header from "./components/layout/Header";
-
+import {  Space } from 'antd';
 const urbanist = Urbanist({
   subsets: ["latin"],
 });
