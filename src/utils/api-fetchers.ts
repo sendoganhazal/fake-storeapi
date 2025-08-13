@@ -43,7 +43,7 @@ export async function fetchProduct(params: ParamValue) {
     if (!response.ok) {
       throw new Error(`API isteği başarısız oldu: ${response.statusText}`);
     }
-    const data:Product[] = await response.json();
+    const data = await response.json();
     return data;
   } catch (error) {
     console.error("hata oluştu:", error);

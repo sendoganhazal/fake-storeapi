@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 import { Product } from '@/utils/types'
 import { fetchProductByCategory } from '@/utils/api-fetchers'
 import { ParamValue } from 'next/dist/server/request/params'
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Rate } from 'antd';
 import Image from 'next/image'
 import Link from 'next/link'
 const { Meta } = Card;
@@ -30,16 +30,17 @@ const Page = () => {
   }, [])
   console.log("products", products)
   return (
-    <Row justify={'center'} gutter={16}>
+    <Row  gutter={32}>
       {
         products?.map((prod, key) => (
-          <Col md={4} key={key}>
+          <Col md={6} key={key} className='gutter-row'>
             <Link href={`/product/${prod.id}`}>
               <Card
                 hoverable
                 cover={<Image alt="example" src={prod.thumbnail} width={100} height={200} />}
               >
                 <Meta title={prod.title} description={prod.brand} />
+                <Rate value={prod.rating}  allowHalf/>
               </Card>
             </Link>
           </Col>

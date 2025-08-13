@@ -3,7 +3,7 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Header from "./components/layout/Header";
-import {  Space } from 'antd';
+import { Col, Row } from 'antd';
 const urbanist = Urbanist({
   subsets: ["latin"],
 });
@@ -22,9 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.className}`}>
         <AntdRegistry>
-          <Header/>
+          <Header />
           <main>
-            {children}
+            <Row justify={"center"}>
+              <Col md={22}>
+                {children}
+              </Col>
+            </Row>
           </main>
         </AntdRegistry>
       </body>
