@@ -54,3 +54,7 @@ main {
   background-color: var(--primary);
   border-radius: 10px;
 }
+
+.mt-32 {
+  margin-top: 32px;
+}
