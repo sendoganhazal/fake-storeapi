@@ -1,5 +1,6 @@
 import { Category, Product } from "./types";
 import { ParamValue } from 'next/dist/server/request/params'
+const BASE_URL = 'https://dummyjson.com';
 const CATEGORIES_URL = 'https://dummyjson.com/products/categories'
 const PROD_BY_CAT_BASE_URL = 'https://dummyjson.com/products/category';
 const  PRODUCT_BASE_URL = 'https://dummyjson.com/products'
@@ -44,6 +45,23 @@ export async function fetchProduct(params: ParamValue) {
       throw new Error(`API isteği başarısız oldu: ${response.statusText}`);
     }
     const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("hata oluştu:", error);
+    return [];
+  }
+}
+
+export async function searchedProducts(params: string) {
+    const url = `${BASE_URL}${params}`;
+    console.log("f",url)
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`API isteği başarısız oldu: ${response.statusText}`);
+    }
+    const res = await response.json();
+    const data:Product[] = res.products;
     return data;
   } catch (error) {
     console.error("hata oluştu:", error);
