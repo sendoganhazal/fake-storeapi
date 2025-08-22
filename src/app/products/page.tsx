@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { ParamValue } from 'next/dist/server/request/params';
 import { Product } from '@/utils/types';
@@ -11,7 +11,7 @@ async function getSearchedProducts(params: string) {
   return response;
 }
 
-const Products = () => {
+const ProductsContainer = () => {
   const [products, setProducts] = useState<Product[] | null>(null)
   const param = useSearchParams();
   const pathname = usePathname();
@@ -26,9 +26,16 @@ const Products = () => {
   }, [])
 
   return (
-    <section>
-      <ProductList products={products}/>
-    </section>
+      <section>
+        <ProductList products={products} />
+      </section>
+  )
+}
+const Products = () => {
+  return(
+    <Suspense>
+      <ProductsContainer/>
+    </Suspense>
   )
 }
 

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Product } from '@/utils/types'
 import { Card, List, Typography, Tag, Rate } from 'antd';
 interface OverViewProps {

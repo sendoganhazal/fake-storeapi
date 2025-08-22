@@ -1,7 +1,7 @@
 import React from 'react'
 import { Product } from '@/utils/types'
 import { Row, Col } from 'antd';
-import Link from 'next/link'
+// import Link from 'next/link'
 import ProductCard from './ProductCard';
 
 

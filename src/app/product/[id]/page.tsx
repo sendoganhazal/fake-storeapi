@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 import { Product } from '@/utils/types'
 import { fetchProduct } from '@/utils/api-fetchers'
 import { ParamValue } from 'next/dist/server/request/params'
-import {  Row, Col, Card, List, Typography, Tag, Rate, Button } from 'antd';
+import {  Row, Col, Typography, Rate, Button } from 'antd';
 import ProductDetailHeader from '@/app/components/products/ProductDetailHeader'
 import ProductImagesCarousel from '@/app/components/products/ProductImagesCarousel'
 import ProductDetailOverview from '@/app/components/products/ProductDetailOverview'

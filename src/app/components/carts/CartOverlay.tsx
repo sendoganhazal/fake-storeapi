@@ -9,9 +9,7 @@ import {
   CloseOutlined,
   PlusOutlined,
   MinusOutlined,
-  DeleteOutlined,
-  SettingOutlined,
-  ProfileOutlined
+  DeleteOutlined
 } from '@ant-design/icons';
 interface CartOverlayProps {
   onClose: () => void;

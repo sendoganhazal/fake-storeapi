@@ -1,9 +1,9 @@
 import React from 'react'
-import SearchBox from './Search'
+import Search from './Search'
 
 const GreetingBanner = () => {
   return (
-     <SearchBox/>
+     <Search/>
    
   )
 }

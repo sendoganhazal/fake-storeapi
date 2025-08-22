@@ -1,14 +1,14 @@
 "use client"
-import React, {useEffect, useState} from 'react'
+import React, { useState, Suspense} from 'react'
 import { Row, Col, Input } from 'antd'
 import type { GetProps } from 'antd';
-import { Product } from '@/utils/types';
+// import { Product } from '@/utils/types';
 import { useRouter } from 'next/navigation'
 
 
 type SearchProps = GetProps<typeof Input.Search>;
 
-const { Search } = Input;
+
 
 const SearchBox = () => {
   const router = useRouter();
@@ -30,4 +30,12 @@ const SearchBox = () => {
   )
 }
 
-export default SearchBox
+const Search = () => {
+  return(
+    <Suspense>
+      <SearchBox/>
+    </Suspense>
+  )
+}
+
+export default Search

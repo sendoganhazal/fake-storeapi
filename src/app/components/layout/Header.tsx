@@ -5,7 +5,6 @@ import type { MenuProps } from "antd";
 import { Menu, Button, Badge } from "antd";
 import Link from 'next/link';
 import { fetchCategories } from "@/utils/api-fetchers";
-import { Category } from "@/utils/types";
 import { useCart } from '@/utils/CardContext';
 import CartOverlay from '../carts/CartOverlay';
 
