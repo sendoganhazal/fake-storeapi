@@ -1,11 +1,13 @@
 "use client"
-import React, { useState,useEffect } from "react";
-import { Html5TwoTone, AppstoreOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from "react";
+import { Html5TwoTone, ShoppingCartOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Menu } from "antd";
+import { Menu, Button, Badge } from "antd";
 import Link from 'next/link';
 import { fetchCategories } from "@/utils/api-fetchers";
 import { Category } from "@/utils/types";
+import { useCart } from '@/utils/CardContext';
+import CartOverlay from '../carts/CartOverlay';
 
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -16,6 +18,10 @@ async function fetcher() {
 
 
 const Header: React.FC = () => {
+  const { cartItemCount } = useCart();
+  const [isCartOverlayOpen, setIsCartOverlayOpen] = useState(false);
+
+
   const [current, setCurrent] = useState("home");
   const [cat, setCat] = useState<MenuItem[] | undefined>();
   async function getCategories() {
@@ -37,7 +43,9 @@ const Header: React.FC = () => {
   useEffect(() => {
     getCategories();
   }, [])
-  
+  const toggleCartOverlay = () => {
+    setIsCartOverlayOpen(prevState => !prevState);
+  };
 
   const items: MenuItem[] = [
     {
@@ -53,6 +61,15 @@ const Header: React.FC = () => {
       key: 'categories',
       label: "Categories",
       children: cat
+    },
+    {
+      key: "cart",
+      label: (
+        <Button color="primary" variant="outlined" onClick={toggleCartOverlay}>
+          <ShoppingCartOutlined />
+           {cartItemCount > 0 && <Badge count={cartItemCount} color="pink"/>}
+        </Button>
+      )
     }
   ];
   const onClick: MenuProps["onClick"] = (e) => {
@@ -68,6 +85,7 @@ const Header: React.FC = () => {
         mode="horizontal"
         items={items}
       />
+      {isCartOverlayOpen && <CartOverlay onClose={toggleCartOverlay} />}
     </header>
   );
 };

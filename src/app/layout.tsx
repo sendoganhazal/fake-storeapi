@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from '@/utils/CardContext';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Header from "./components/layout/Header";
 import { Col, Row } from 'antd';
+import '@ant-design/v5-patch-for-react-19';
 const urbanist = Urbanist({
   subsets: ["latin"],
 });
@@ -22,14 +24,18 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.className}`}>
         <AntdRegistry>
-          <Header />
-          <main>
-            <Row justify={"center"}>
-              <Col md={22}>
-                {children}
-              </Col>
-            </Row>
-          </main>
+          <CartProvider>
+            <Header />
+            <main>
+              <Row justify={"center"}>
+                <Col md={22}>
+                  {children}
+
+                </Col>
+              </Row>
+            </main>
+          </CartProvider>
+
         </AntdRegistry>
       </body>
     </html>
