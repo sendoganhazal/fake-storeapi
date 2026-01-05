@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./globals.css";
-import { CartProvider } from '@/utils/CardContext';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import Header from "./components/layout/Header";
-import { Col, Row } from 'antd';
-import '@ant-design/v5-patch-for-react-19';
-const urbanist = Urbanist({
-  subsets: ["latin"],
-});
+import Header from "@/components/organisms/header/Header";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,21 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${urbanist.className}`}>
-        <AntdRegistry>
-          <CartProvider>
-            <Header />
-            <main>
-              <Row justify={"center"}>
-                <Col md={22}>
-                  {children}
-
-                </Col>
-              </Row>
-            </main>
-          </CartProvider>
-
-        </AntdRegistry>
+      <body>
+        <Header/>
+        {children}
       </body>
     </html>
   );

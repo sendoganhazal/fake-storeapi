@@ -1,10 +1,12 @@
-import GreetingBanner from "./components/homepage/GreetingBanner";
-
+import ProductsContainer from "@/components/organisms/products/ProductContainer";
 
 export default function Home() {
   return (
-    <>
-     <GreetingBanner/>
-    </>
+    <main>
+      <h1>Welcome</h1>
+      <section className="container">
+        <ProductsContainer/>
+      </section>
+    </main>
   );
 }
