@@ -1,16 +1,31 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function SearchInput() {
-  const router = useRouter();
-  const params = useSearchParams();
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const search = new URLSearchParams(params.toString());
-    search.set("q", e.target.value);
-    router.push(`/?${search.toString()}`);
-  };
+export default function SearchInput({ value, onChange }: Props) {
+  const [localValue, setLocalValue] = useState(value);
 
-  return <input placeholder="Search product..." onChange={onChange} className="form-control" />;
+  // URL'den gelen value değişirse input da güncellensin
+  useEffect(() => {
+    setLocalValue(value);
+  }, [value]);
+
+  return (
+    <input
+      type="text"
+      placeholder="Search by product title"
+      value={localValue}
+      onChange={(e) => {
+        setLocalValue(e.target.value);
+        onChange(e.target.value);
+      }}
+     className="form-control"
+    />
+  );
 }
