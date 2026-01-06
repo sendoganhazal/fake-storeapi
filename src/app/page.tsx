@@ -1,11 +1,13 @@
+// app/page.tsx (SERVER)
+import { getCategories } from "@/lib/fetcher/api-fetcher";
+import ProductsClient from "@/components/organisms/ProductsClient";
 
+export default async function Home() {
+  const categories = await getCategories();
 
-export default function Home() {
   return (
-    <main>
-      <h1>Welcome</h1>
-      <section className="container">
-      </section>
+    <main className="container">
+      <ProductsClient categories={categories} />
     </main>
   );
 }
