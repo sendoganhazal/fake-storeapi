@@ -11,7 +11,6 @@ type Props = {
 export default function SearchInput({ value, onChange }: Props) {
   const [localValue, setLocalValue] = useState(value);
 
-  // URL'den gelen value değişirse input da güncellensin
   useEffect(() => {
     setLocalValue(value);
   }, [value]);

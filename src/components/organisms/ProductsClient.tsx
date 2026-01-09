@@ -19,7 +19,6 @@ export default function ProductsClient({ categories }: Props) {
  const router = useRouter();
   const searchParams = useSearchParams();
 
-  // 🔹 URL → STATE
   const pageParam = Number(searchParams.get("page")) || 1;
   const sortParam = (searchParams.get("sort") as "" | "asc" | "desc") || "";
   const categoryParam = searchParams.get("category") || "";
@@ -31,12 +30,10 @@ export default function ProductsClient({ categories }: Props) {
   const [category, setCategory] = useState(categoryParam);
   const [search, setSearch] = useState(searchParam);
 
-  // 🔹 FETCH ONCE
   useEffect(() => {
     getProducts().then(setAllProducts);
   }, []);
 
-  // 🔹 STATE → URL
   useEffect(() => {
     const params = new URLSearchParams();
 
@@ -48,7 +45,7 @@ export default function ProductsClient({ categories }: Props) {
     router.replace(`/?${params.toString()}`, { scroll: false });
   }, [page, sort, category, search, router]);
 
-  // 🔹 FILTER + SORT + SEARCH
+
   const filteredProducts = useMemo(() => {
     let list = [...allProducts];
 
@@ -77,7 +74,6 @@ export default function ProductsClient({ categories }: Props) {
     return list;
   }, [allProducts, category, sort, search]);
 
-  // 🔹 PAGINATION
   const paginatedProducts = useMemo(() => {
     const start = (page - 1) * PAGE_SIZE;
     return filteredProducts.slice(start, start + PAGE_SIZE);
