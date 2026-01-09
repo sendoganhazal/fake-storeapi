@@ -1,3 +1,8 @@
+export type Rating = {
+  rate: number;
+  count: number;
+};
+
 export type Product = {
   id: number;
   title: string;
@@ -5,8 +10,8 @@ export type Product = {
   description: string;
   category: string;
   image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  rating: Rating;
+};
+export type CartItem = Product & {
+  quantity: number;
 };

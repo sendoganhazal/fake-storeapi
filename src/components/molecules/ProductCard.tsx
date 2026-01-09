@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/types/types";
 import Button from "@/components/atoms/Button";
-import { useCart } from "@/lib/context/CardContext";
+import { useCart } from "@/lib/context/CartContext";
 
 const Card = styled.div`
   border: 1px solid #eee;
