@@ -11,6 +11,7 @@ const Wrapper = styled.header`
  color:#fff;
   display: flex;
   justify-content: space-between;
+  align-items:center;
 `;
 const Logo = styled.h1`
   font-size: 1.25rem;
