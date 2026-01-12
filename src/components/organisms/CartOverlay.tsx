@@ -44,6 +44,16 @@ export default function CartOverlay() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+const CloseButton = styled.button`
+  padding: 0.9375rem;
+  border: none;
+  background:  #fff;
+  cursor: pointer;
+  font-size:0.875rem;
+  font-weight:500;
+  border-radius: 10px;
+  display:block;
+`;
 
   return (
     <>
@@ -52,7 +62,7 @@ export default function CartOverlay() {
       <Drawer $isOpen={isCartOpen}>
         <Header>
           <h2>Sepet</h2>
-          <button onClick={closeCart}>✕</button>
+          <CloseButton onClick={closeCart}>✕</CloseButton>
         </Header>
 
         {items.length === 0 ? (

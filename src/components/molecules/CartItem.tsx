@@ -23,11 +23,36 @@ const Actions = styled.div`
   gap: 8px;
 `;
 
+
 const Remove = styled.button`
-  background: none;
+  padding: 0.75rem;
   border: none;
+  background:  #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size:0.875rem;
+  font-weight:700;
+  border-radius: 10px;
+  display:block;
+  color: #ef4444;
+`;
+
+const Counter = styled.button`
+  padding: 0.75rem;
+  border: none;
+  color: #fff;
+  background:  #06b6d4;
+  cursor: pointer;
+  font-size:0.875rem;
+  font-weight:500;
+  border-radius: 10px;
+  display:block;
+`;
+
+const Price = styled.p`
+  padding:0.625rem;
+ font-size:1.20rem;
+ font-weight:600;
+ color: #641ba3;
 `;
 
 export default function CartItem({ item }: { item: Item }) {
@@ -41,14 +66,14 @@ export default function CartItem({ item }: { item: Item }) {
         <strong>{item.title}</strong>
 
         <Actions>
-          <button onClick={() => decreaseQty(item.id)}>-</button>
+          <Counter onClick={() => decreaseQty(item.id)}>-</Counter>
           <span>{item.quantity}</span>
-          <button onClick={() => increaseQty(item.id)}>+</button>
+          <Counter onClick={() => increaseQty(item.id)}>+</Counter>
         </Actions>
 
-        <p>
+        <Price>
           ${(item.price * item.quantity).toFixed(2)}
-        </p>
+        </Price>
       </div>
 
       <Remove onClick={() => removeFromCart(item.id)}>✕</Remove>
