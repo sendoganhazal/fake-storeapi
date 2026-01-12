@@ -18,7 +18,7 @@ export default function Filters({
 
 
   return (
-    <section className="form-group">
+    <div className="form-group">
       {/* SORT */}
       <select
       className="form-select"
@@ -45,6 +45,6 @@ export default function Filters({
           </option>
         ))}
       </select>
-    </section>
+    </div>
   );
 }

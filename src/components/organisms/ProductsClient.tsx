@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function ProductsClient({ categories }: Props) {
- const router = useRouter();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const pageParam = Number(searchParams.get("page")) || 1;
@@ -82,27 +82,29 @@ export default function ProductsClient({ categories }: Props) {
 
   return (
     <>
-      <SearchInput
-        value={search}
-        onChange={(value) => {
-          setPage(1);
-          setSearch(value);
-        }}
-      />
+      <section className="filters-section">
+        <SearchInput
+          value={search}
+          onChange={(value) => {
+            setPage(1);
+            setSearch(value);
+          }}
+        />
 
-      <Filters
-        categories={categories}
-        sort={sort}
-        category={category}
-        onSortChange={(value) => {
-          setPage(1);
-          setSort(value);
-        }}
-        onCategoryChange={(value) => {
-          setPage(1);
-          setCategory(value);
-        }}
-      />
+        <Filters
+          categories={categories}
+          sort={sort}
+          category={category}
+          onSortChange={(value) => {
+            setPage(1);
+            setSort(value);
+          }}
+          onCategoryChange={(value) => {
+            setPage(1);
+            setCategory(value);
+          }}
+        />
+      </section>
 
       <ProductList products={paginatedProducts} />
 
