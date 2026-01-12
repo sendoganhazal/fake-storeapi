@@ -12,7 +12,7 @@ const Drawer = styled.aside<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
   right: 0;
-  width: 380px;
+  width: 450px;
   height: 100vh;
   background: #fff;
   transform: translateX(${({ $isOpen }) => ($isOpen ? "0" : "100%")});
@@ -20,7 +20,10 @@ const Drawer = styled.aside<{ $isOpen: boolean }>`
   z-index: 50;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 1.25rem;
+  @media (min-width:768px) and (max-width: 991.98px) {
+    width:50%;
+  }
 `;
 
 const Header = styled.div`
@@ -32,7 +35,7 @@ const Header = styled.div`
 const Footer = styled.div`
   margin-top: auto;
   border-top: 1px solid #eee;
-  padding-top: 12px;
+  padding-top: 0.75rem;
 `;
 
 export default function CartOverlay() {
