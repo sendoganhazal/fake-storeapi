@@ -18,17 +18,16 @@ type Props = {
 export default function ProductsClient({ categories }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const pageParam = Number(searchParams.get("page")) || 1;
-  const sortParam = (searchParams.get("sort") as "" | "asc" | "desc") || "";
-  const categoryParam = searchParams.get("category") || "";
-  const searchParam = searchParams.get("search") || "";
+ const initialPage = Number(searchParams.get("page")) || 1;
+  const initialSort = (searchParams.get("sort") as "" | "asc" | "desc") || "";
+  const initialCategory = searchParams.get("category") || "";
+  const initialSearch = searchParams.get("search") || "";
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [page, setPage] = useState(pageParam);
-  const [sort, setSort] = useState<"" | "asc" | "desc">(sortParam);
-  const [category, setCategory] = useState(categoryParam);
-  const [search, setSearch] = useState(searchParam);
+  const [page, setPage] = useState(initialPage);
+  const [sort, setSort] = useState<"" | "asc" | "desc">(initialSort);
+  const [category, setCategory] = useState(initialCategory);
+  const [search, setSearch] = useState(initialSearch);
 
   useEffect(() => {
     getProducts().then(setAllProducts);

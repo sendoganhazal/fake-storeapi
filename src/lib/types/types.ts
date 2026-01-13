@@ -15,3 +15,11 @@ export type Product = {
 export type CartItem = Product & {
   quantity: number;
 };
+
+
+export type CartContextType = {
+  items: CartItem[];
+  addToCart: (product: Product) => void;
+  decreaseQuantity: (id: number) => void;
+  clearCart: () => void;
+};
