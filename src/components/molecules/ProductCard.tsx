@@ -52,7 +52,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <Card>
-      <Link href={`/products/${product.id}`}>
+      <Link href={`/product/${product.id}`}>
         <ImageWrapper>
           <Image
             src={product.image}
