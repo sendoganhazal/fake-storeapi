@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fake Store App 🛒
 
-## Getting Started
+A simple e-commerce frontend built with **Next.js App Router**, using the Fake Store API.  
+The project focuses on product listing, filtering, pagination, and a basic cart system.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- Product listing from Fake Store API
+- Category filtering
+- Search by product title
+- Price sorting (ascending / descending)
+- Client-side pagination
+- Shopping cart (add, increase, decrease, remove)
+- Cart overlay UI
+- URL-based state (query params for filters & pagination)
+- Responsive layout
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js (App Router)**
+- **React**
+- **TypeScript**
+- **Styled Components**
+- **Context API** (Cart & UI state)
+- **Fake Store API**
+
+---
+
+
+## 📁 Project Structure
+
+```text
+src/
+├── app/
+│ ├── page.tsx
+│ ├── layout.tsx
+│ └── cart/
+│ └── page.tsx
+│
+├── components/
+│ ├── atoms/
+│ ├── molecules/
+│ └── organisms/
+│
+├── lib/
+│ ├── context/
+│ ├── fetcher/
+│ └── types/
+│
+├── test-utils/
+└── styles/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ Install dependencies
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2️⃣ Run development server
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The app will be available at:
 
-## Deploy on Vercel
+http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛒 Cart Behavior
+
+- Products can be added to the cart
+
+- Quantity can be increased or decreased
+
+- Product is removed automatically when quantity reaches zero
+
+- Cart state is managed via React Context
+
+---
+
+## 🔎 Filtering & Pagination
+
+- Filters and pagination are synced with URL search params
+
+- State is preserved on refresh and navigation
+
+- Pagination is handled on the client side
+
+---
+
+## 🧪 Testing
+
+- Unit tests were temporarily removed to focus on feature development and stability.
+- The project structure supports adding tests later using Jest and React Testing Library.
+
+---
+
+## ⚠️ Notes
+
+- This project is for learning and demonstration purposes
+
+- Fake Store API is a public API and may have availability limitations
+
+- No authentication or payment functionality is included
+
+---
+
+## 📌 Future Improvements
+
+- Re-enable unit tests
+
+- Add loading & error states
+
+- Persist cart to localStorage
+
+- Improve accessibility
+
+- Add product detail page
+
+---
+
+## 📄 License
+
+- This project is open-source and free to use for educational purposes.
