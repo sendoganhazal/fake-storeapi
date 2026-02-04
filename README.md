@@ -2,7 +2,7 @@
 
 A simple e-commerce frontend built with **Next.js App Router**, using the Fake Store API.  
 The project focuses on product listing, filtering, pagination, and a basic cart system.
-
+https://fake-store-app-by-hazal.netlify.app/
 ---
 
 ## ✨ Features
